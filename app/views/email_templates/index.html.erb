@@ -11,6 +11,7 @@
         <th>Name</th>
         <th>Category</th>
         <th>Send date</th>
+        <th>Status</th>
         <th></th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
           <td><%= email_template.name %></td>
           <td><%= email_template.email_marketing_category.name %></td>
           <td><%= email_template.send_date %></td>
+          <td><%= email_template.status %></td>
           <td>
             <%= link_to "Show", email_template %> |
             <%= link_to "Edit", edit_email_template_path(email_template) %>

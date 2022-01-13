@@ -4,7 +4,12 @@ require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
-  resources :email_templates
+  resources :email_templates do
+    member do
+      post :publish
+      post :take_off
+    end
+  end
   resources :users
   resources :email_marketing_categories
 

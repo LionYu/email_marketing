@@ -1,10 +1,30 @@
+<% if @email_template.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(@email_template.errors.count, "error") %> prohibited this email_template from being saved:</h2>
+
+    <ul>
+      <% @email_template.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
+
+<div>
+  <%= link_to "Edit this email template", edit_email_template_path(@email_template) %> |
+  <%= link_to "Back to email templates", email_templates_path %>  
+</div>
 
 <%= render @email_template %>
 
 <div>
-  <%= link_to "Edit this email template", edit_email_template_path(@email_template) %> |
-  <%= link_to "Back to email templates", email_templates_path %>
-
   <%= button_to "Destroy this email template", @email_template, method: :delete %>
+
+  <% if @email_template.online? %>
+    <%= button_to "Take off this email template", take_off_email_template_path(@email_template) %>
+  <% else %>
+    <%= button_to "Publish this email template", publish_email_template_path(@email_template) %>
+  <% end %>
 </div>

@@ -10,6 +10,11 @@
   </p>
 
   <p>
+    <strong>Status:</strong>
+    <%= email_template.status %>
+  </p>
+
+  <p>
     <strong>Send date:</strong>
     <%= email_template.send_date %>
   </p>
@@ -19,9 +24,10 @@
     <%= email_template.subject %>
   </p>
 
-  <p>
-    <strong>Content:</strong>
+  
+  <p><strong>Content:</strong></p>
+  <pre>
     <%= email_template.content %>
-  </p>
+  </pre>
 
 </div>
