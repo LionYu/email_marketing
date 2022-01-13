@@ -20,7 +20,7 @@ class EmailTemplate < ApplicationRecord
 
     event :take_off do
       error do |e|
-        self.errors.add(:status, "must have at least one template of category: #{self.email_marketing_category.name} online")
+        add_take_off_err_msg
       end
       transitions from: :online, to: :offline, guard: :can_offline?
     end
@@ -34,8 +34,12 @@ class EmailTemplate < ApplicationRecord
   private
   def can_destroy?
     unless can_offline?
-      self.errors.add(:status, "must have at least one template of category: #{self.email_marketing_category.name} online")
+      add_take_off_err_msg
       throw(:abort)
     end
+  end
+
+  def add_take_off_err_msg
+    self.errors.add(:status, "Category: [#{self.email_marketing_category.name}] must have at least one template online")
   end
 end
