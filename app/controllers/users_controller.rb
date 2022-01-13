@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update destroy send_ad_email]
 
   # GET /users or /users.json
   def index
@@ -53,6 +53,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  def send_ad_email
+    SandDailyAdEmailToUserWorker.perform_async(@user.id)
+
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: "AD email is in quere." }
       format.json { head :no_content }
     end
   end

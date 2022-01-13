@@ -40,3 +40,21 @@
   - ruby 3.0.0p0
 - Rails version
   - Rails 7.0.1
+- Redis
+  - Redis server v=6.2.3
+  - server on localhost:6379
+
+### 启动服务前的准备工作
+
+1. `cd email_marketing`
+2. `bundle install`
+3. `rails db:create`
+4. `rails db:migrate`
+5. `rails db:seed`
+
+### 启动服务
+
+- 启动 Rails 服务: `rails s`
+- 启动 Sidekiq 服务: `bundle exec sidekiq`
+
+访问 localhost:3000

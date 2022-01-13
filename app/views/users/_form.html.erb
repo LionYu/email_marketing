@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :email_marketing_category_id, style: "display: block" %>
-    <%= form.text_field :email_marketing_category_id %>
+    <%= form.select :email_marketing_category_id, EmailMarketingCategory.all.collect{|c| [c.name, c.id]}%>
   </div>
 
   <div>

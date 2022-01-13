@@ -10,7 +10,11 @@ Rails.application.routes.draw do
       post :take_off
     end
   end
-  resources :users
+  resources :users do
+    member do
+      post :send_ad_email
+    end
+  end
   resources :email_marketing_categories
 
   # Defines the root path route ("/")
