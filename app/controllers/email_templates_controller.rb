@@ -65,6 +65,6 @@ class EmailTemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def email_template_params
-      params.require(:email_template).permit(:name, :email_marketing_category_id, :subject, :content)
+      params.require(:email_template).permit(:name, :email_marketing_category_id, :subject, :content, :send_date)
     end
 end
