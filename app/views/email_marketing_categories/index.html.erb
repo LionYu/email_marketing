@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Email marketing categories</h1>
+
+<div id="email_marketing_categories">
+  <% @email_marketing_categories.each do |email_marketing_category| %>
+    <%= render email_marketing_category %>
+    <p>
+      <%= link_to "Show this email marketing category", email_marketing_category %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New email marketing category", new_email_marketing_category_path %>

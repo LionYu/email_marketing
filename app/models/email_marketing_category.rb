@@ -1,0 +1,2 @@
+class EmailMarketingCategory < ApplicationRecord
+end

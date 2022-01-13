@@ -1,0 +1,1 @@
+json.partial! "email_marketing_categories/email_marketing_category", email_marketing_category: @email_marketing_category
