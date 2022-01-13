@@ -1,0 +1,53 @@
+<h2>功能设想</h2>
+
+<h4>概述</h4>
+
+<p>每日定时，为已经注册时间满 7 天的用户推送营销邮件。推送营销邮件时，需要根据用户的邮件营销标签选择相应的模板，实现个性化推送。</p>
+
+<h4>功能点</h4>
+
+<ul>
+  <li>针对用户
+    <ul>
+      <li>可为用户实例配置营销标签</li>
+    </ul>
+  </li>
+  <li>针对邮件模板
+    <ul>
+      <li>可使用富文本编辑器配置邮件内容</li>
+      <li>需关联营销标签</li>
+      <li>可配置特定日期，以便于推送该日期下的特殊内容</li>
+      <li>可配置是否生效</li>
+    </ul>
+  </li>
+  <li>定时任务
+    <ul>
+      <li>每日定时发送</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>模型设计</h2>
+
+<ul>
+  <li>EmailMarketingCategory
+    <ul>
+      <li>name</li>
+    </ul>
+  </li>
+  <li>User
+    <ul>
+      <li>email</li>
+      <li>email_marketing_category_id</li>
+      <li>sign_up_at</li>
+    </ul>
+  </li>
+  <li>EmailTemplate
+    <ul>
+      <li>name</li>
+      <li>email_marketing_category_id</li>
+      <li>subject</li>
+      <li>content</li>
+    </ul>
+  </li>
+</ul>

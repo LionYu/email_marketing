@@ -3,7 +3,7 @@ class EmailMarketingCategoriesController < ApplicationController
 
   # GET /email_marketing_categories or /email_marketing_categories.json
   def index
-    @email_marketing_categories = EmailMarketingCategory.all
+    @email_marketing_categories = EmailMarketingCategory.all.page(params[:page])
   end
 
   # GET /email_marketing_categories/1 or /email_marketing_categories/1.json

@@ -2,13 +2,32 @@
 
 <h1>Email templates</h1>
 
+<%= link_to "New email template", new_email_template_path %>
+
 <div id="email_templates">
-  <% @email_templates.each do |email_template| %>
-    <%= render email_template %>
-    <p>
-      <%= link_to "Show this email template", email_template %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Send date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @email_templates.each do |email_template| %>
+        <tr>
+          <td><%= email_template.name %></td>
+          <td><%= email_template.email_marketing_category.name %></td>
+          <td><%= email_template.send_date %></td>
+          <td>
+            <%= link_to "Show", email_template %> |
+            <%= link_to "Edit", edit_email_template_path(email_template) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New email template", new_email_template_path %>
+<%= paginate @email_templates %>

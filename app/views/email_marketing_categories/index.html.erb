@@ -2,13 +2,30 @@
 
 <h1>Email marketing categories</h1>
 
+<%= link_to "New email marketing category", new_email_marketing_category_path %>
+
+
+
 <div id="email_marketing_categories">
-  <% @email_marketing_categories.each do |email_marketing_category| %>
-    <%= render email_marketing_category %>
-    <p>
-      <%= link_to "Show this email marketing category", email_marketing_category %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @email_marketing_categories.each do |email_marketing_category| %>
+        <tr>
+          <td><%= email_marketing_category.name %></td>
+          <td>
+            <%= link_to "Show", email_marketing_category %> |
+            <%= link_to "Edit", edit_email_marketing_category_path(email_marketing_category) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New email marketing category", new_email_marketing_category_path %>
+<%= paginate @email_marketing_categories %>
