@@ -61,8 +61,8 @@ class UsersController < ApplicationController
     SandDailyAdEmailToUserWorker.perform_async(@user.id)
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "AD email is in quere." }
-      format.json { head :no_content }
+      format.html { redirect_to user_url(@user), notice: "AD email is in quere." }
+      format.json { render :show, status: :ok, location: @user }
     end
   end
 
