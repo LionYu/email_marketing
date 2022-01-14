@@ -1,5 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
+<h3>Tips:</h3>
+<p>每个用户都具备：Marketing category 属性，此属性同时被 EmailTemplate 关联，为该用户发送 AD 邮件时，以此关联的符合要求的模板为准</p>
+<p>可打开用户编辑页，更改用户关联的 Email marketing category 属性，以切换不同的 EmailTemplate</p>
+<p>可打开用户详情页，并点击其中的【Test AD email】按钮，测试单个用户的邮件发送是否符合预期</p>
+
 <h1>Users</h1>
 
 <%= link_to "New user", new_user_path %>

@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @email_marketing_category %>
-
 <div>
   <%= link_to "Edit this email marketing category", edit_email_marketing_category_path(@email_marketing_category) %> |
   <%= link_to "Back to email marketing categories", email_marketing_categories_path %>
+</div>
 
+<%= render @email_marketing_category %>
+
+<div>
   <%= button_to "Destroy this email marketing category", @email_marketing_category, method: :delete %>
 </div>

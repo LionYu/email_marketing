@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<h3>Tips:</h3>
+<p>可打开邮件模板编辑页，通过富文本编辑器变更模板内容</p>
+<p>可打开用户详情页，并点击其中的【Publish this email template】按钮，以上线启用某个模板</p>
+<p>可打开用户详情页，并点击其中的【Take off this email template】按钮，以下线某个模板，下线后，此模板将失效，可重新上线。当同一 Email marketing category 关联的模板下仅剩余 1 个在线的模板时，此在线模板无法下线、或被删除</p>
+<p>邮件模板中的 Send date 字段用于匹配特定日期发送，该字段非必填。当每日定时任务中未查询到符合当天日期的模板时，会使用最新的模板</p>
+
 <h1>Email templates</h1>
 
 <%= link_to "New email template", new_email_template_path %>
